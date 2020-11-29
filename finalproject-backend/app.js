@@ -4,7 +4,6 @@
 // import firebase from "firebase/app"; //import everything from this package as firebase
 // import "firebase/auth"; //importing entire package
 //Styles
-import "./App.css";
 
 //Web app's firebase configuration
 // const firebaseConfig = {
