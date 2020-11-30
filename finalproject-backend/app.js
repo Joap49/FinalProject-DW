@@ -1,9 +1,8 @@
-//Backend Application for Final Project
-import "firebase/app/dist/index.cjs.js";
-import "@firebase/auth";
-import "@firebase/firestore";
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 4000;
 
-//Web app's firebase configuration
+// Configuration Values for Firebase
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY, // replace with .env file API reference
   authDomain: "final-project-dw2020.firebaseapp.com",
@@ -14,24 +13,19 @@ const firebaseConfig = {
   appId: "1:978674596080:web:e671f444cc0e36c66cea35",
 };
 
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 3000;
+//Firebase
+const firebase = require("firebase");
+firebase.initializeApp(firebaseConfig);
 
-function App() {
-  const [loggedIn, setloggedIn] = useState(false); //determine if logged in
-  const [loading, setLoading] = useState(true); //is page loading
-  //Ensure app is initialized when its ready
-  useEffect(() => {
-    //initializes Firebase
-    if (!firebase.apps.legnth) {
-      firebase.initializeApp(firebaseConfig);
-    }
-  }, [firebaseConfig]);
-}
+//Routes Import
+const indexRoute = require("./route/index.js");
+const postRoute = require("./route/post.js");
+const createRoute = require("./route/createBlogpost.js");
+//Routes
+app.use("/", indexRoute);
+app.use("/post", postRoute);
+app.use("/create", createRoute);
 
 app.listen(port, () =>
-  console.log(`Final Project is rynning at localhost:${port}`)
+  console.log(`Exercise Four is running at localhost:${port}`)
 );
-
-export default App;

@@ -1,7 +1,6 @@
 {
   "name": "finalproject-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,5 +15,7 @@
   },
   "engines": {
     "node": "14.15.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
