@@ -17,8 +17,9 @@ const firebaseConfig = {
 };
 // const firebase = require("firebase");
 
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 3000;
 
 function App() {
   const [loggedIn, setloggedIn] = useState(false); //determine if logged in
@@ -31,5 +32,9 @@ function App() {
     }
   }, [firebaseConfig]);
 }
+
+app.listen(port, () =>
+  console.log(`Final Project is rynning at localhost:${port}`)
+);
 
 export default App;
