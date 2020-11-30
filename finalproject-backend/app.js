@@ -1,9 +1,7 @@
 //Backend Application for Final Project
-//import firebase from "firebase/app"; //import everything from this package as firebase
 import "firebase/app/dist/index.cjs.js";
 import "@firebase/auth";
 import "@firebase/firestore";
-//Styles
 
 //Web app's firebase configuration
 const firebaseConfig = {
@@ -15,7 +13,6 @@ const firebaseConfig = {
   messagingSenderId: "978674596080",
   appId: "1:978674596080:web:e671f444cc0e36c66cea35",
 };
-// const firebase = require("firebase");
 
 const express = require("express");
 const app = express();
