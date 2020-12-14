@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/`) // THis will link to your Heroku deploy
+      .get(`https://limitless-eyrie-25092.herokuapp.com/`) // THis will link to your Heroku deploy
       .then(function (response) {
         if (response.data) {
           setReviewAPIData(response.data);

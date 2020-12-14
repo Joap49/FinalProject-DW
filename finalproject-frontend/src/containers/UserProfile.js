@@ -9,7 +9,7 @@ function UserProfile() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/reviews/${id}`) // THis will link to your Heroku deploy
+      .get(`https://limitless-eyrie-25092.herokuapp.com/reviews/${id}`) // THis will link to your Heroku deploy
       .then(function (response) {
         setUserReviewData(response);
       })

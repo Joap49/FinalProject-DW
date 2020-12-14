@@ -10,7 +10,7 @@ function CreateReview({ userAuthInfo }) {
     const reviewAuthorId = userAuthInfo.uid;
 
     Axios.get(
-      `http://localhost:4000/create?reviewTitle=${reviewTitle}&reviewText=${reviewText}&reviewAuthor=${reviewAuthor}&reviewAuthorId=${reviewAuthorId}`
+      `https://limitless-eyrie-25092.herokuapp.com/create?reviewTitle=${reviewTitle}&reviewText=${reviewText}&reviewAuthor=${reviewAuthor}&reviewAuthorId=${reviewAuthorId}`
     )
       .then(function (response) {
         console.log({ SUCCESS: response });
