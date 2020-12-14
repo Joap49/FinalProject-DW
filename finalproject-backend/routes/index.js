@@ -1,31 +1,30 @@
+//should be identical to exercise 4
 //Show all posts
 const express = require("express");
 const router = express.Router();
-//Require Firebase
 const firebase = require("firebase");
-//Initialize firebase
 const db = firebase.firestore();
-//reference a specific collection
-const blogposts = db.collection("blogposts");
+const reviews = db.colelction("reviews");
 
-router.get("/", (req, res) => {
-  // Inside this arrow funciton, we can do anything we want as long as we return at the end
-  const blogpostsArray = [];
-  blogposts
+router.get("all-reviews", (req, res) => {
+  const reviewsArray = [];
+  reviews
     .get()
     .then((querySnapshot) => {
-      //loop through quert snapshot and push into array
-      console.log("querySnapshot", querySnapshot);
       querySnapshot.forEach((doc) => {
-        blogpostsArray.push(doc.data());
+        // Push document into array every time query loops over existing articles
+        reviewsArray.push(doc.data());
       });
-      //return array
-      return res.send(blogpostsArray);
+      return res.send(reviewsArray);
     })
-    .catch(function (e) {
-      console.warn("error:", e);
+    .catch(function (error) {
+      console.log("Error:", error);
       return res.send(error);
     });
+});
+
+router.get("/", (req, res) => {
+  res.send(sampleJSON);
 });
 
 module.exports = router;
