@@ -1,8 +1,8 @@
 import React from "react";
 
-function reviewCard({ reviewData }) {
+function ReviewCard({ reviewData }) {
   return (
-    <div className="reviewCard">
+    <div className="ReviewCard">
       <h2>{reviewData.reviewTitle}</h2>
       {/* Create this link */}
       <h3>
@@ -15,4 +15,4 @@ function reviewCard({ reviewData }) {
   );
 }
 
-export default reviewCard;
+export default ReviewCard;

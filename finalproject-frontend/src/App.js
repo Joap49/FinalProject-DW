@@ -106,7 +106,7 @@ function App() {
   return (
     <div className="App">
       <Header
-        isLoggedIn={loggedIn}
+        loggedIn={loggedIn}
         LogoutFunction={LogoutFunction}
         userAuthInfo={userAuthInfo}
       />

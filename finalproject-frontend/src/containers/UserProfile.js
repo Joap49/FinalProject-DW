@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 //Components
-import reviewCard from "../components/reviewCard";
+import reviewCard from "../components/ReviewCard";
 
 function UserProfile() {
   const [userReviewData, setUserReviewData] = useState([]);
