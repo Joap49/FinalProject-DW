@@ -17,7 +17,7 @@ import CreateReview from "./containers/CreateReview";
 import Header from "./components/Header";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY, // replace with .env file API reference
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   authDomain: "final-project-dw2020.firebaseapp.com",
   databaseURL: "https://final-project-dw2020.firebaseio.com",
   projectId: "final-project-dw2020",
