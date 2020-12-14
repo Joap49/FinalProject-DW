@@ -7,19 +7,20 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000`) // THis will link to your Heroku deploy
+      .get(`http://localhost:4000/`) // THis will link to your Heroku deploy
       .then(function (response) {
-        setReviewAPIData(response);
+        if (response.data) {
+          setReviewAPIData(response.data);
+        }
       })
       .catch(function (error) {
-        console.log("error", error);
+        console.warn("error", error);
       });
   }, []);
-  console.log({ reviewAPIData });
 
   return (
     <div>
-      <h1>Hello</h1>
+      <h1>ALL REVIEWS:</h1>
       {reviewAPIData.map((review, i) => (
         <reviewCard reviewData={review} key={i} />
       ))}

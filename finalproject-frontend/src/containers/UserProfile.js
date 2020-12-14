@@ -5,7 +5,6 @@ import axios from "axios";
 import reviewCard from "../components/reviewCard";
 
 function UserProfile() {
-  const [userProfileData, setUserProfileData] = useState({});
   const [userReviewData, setUserReviewData] = useState([]);
   const { id } = useParams();
   useEffect(() => {

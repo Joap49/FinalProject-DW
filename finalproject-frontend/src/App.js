@@ -17,7 +17,7 @@ import CreateReview from "./containers/CreateReview";
 import Header from "./components/Header";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  apiKey: "AIzaSyDEOFVOj0wbLsKZrOYR5RZb4EBlQ6yIpCw",
   authDomain: "final-project-dw2020.firebaseapp.com",
   databaseURL: "https://final-project-dw2020.firebaseio.com",
   projectId: "final-project-dw2020",
@@ -55,25 +55,22 @@ function App() {
   }, []);
 
   function LoginFunction(e) {
-    // this is what you will run when you want to log in
     e.preventDefault();
     const email = e.currentTarget.loginEmail.value;
     const password = e.currentTarget.loginPassword.value;
-
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (response) {
-        console.log("LOGIN RESPONSE", response);
         setloggedIn(true);
       })
       .catch(function (error) {
-        console.log("LOGIN ERROR", error);
+        console.warn("Login error", error);
       });
   }
-  // funciton for logging out
-  function LogoutFunction() {
-    //function to run when you want to log otu
+
+  // Function for logging out
+  function LogoutFunction(e) {
     firebase
       .auth()
       .signOut()
@@ -82,7 +79,7 @@ function App() {
         setuserAuthInfo({});
       })
       .catch(function (error) {
-        console.log("LOGOUT ERROR", error);
+        console.warn("Logout error", error);
       });
   }
 
@@ -115,17 +112,13 @@ function App() {
       />
       <Router>
         <Route exact path="/login">
-          {/* If someone is logged in, do not take them to login page 
-        - take them to user profile*/}
           {!loggedIn ? (
             <Login LoginFunction={LoginFunction} />
           ) : (
             <Redirect to="/" />
           )}
         </Route>
-        <Route exact path="/create-account">
-          {/* If someone is logged in, do not take them to create account page 
-        - take them to user profile*/}
+        <Route exact path="create-account">
           {!loggedIn ? (
             <CreateAccount CreateAccountFunction={CreateAccountFunction} />
           ) : (
@@ -143,8 +136,6 @@ function App() {
           {!loggedIn ? <Redirect to="/login" /> : <UserProfile />}
         </Route>
         <Route exact path="/">
-          {/* If someone is not logged in, do not take them to user profile page 
-        - take them to login*/}
           {!loggedIn ? (
             <Redirect to="/login" />
           ) : (

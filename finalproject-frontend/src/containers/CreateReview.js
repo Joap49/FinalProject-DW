@@ -19,6 +19,7 @@ function CreateReview({ userAuthInfo }) {
         console.log("ERROR_CREATING_POST", error);
       });
     console.log(e.currentTarget);
+    console.log("Author's ID:", reviewAuthorId);
   }
 
   return (
