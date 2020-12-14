@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Redirect, MemoryRouter } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Redirect,
+  MemoryRouter,
+} from "react-router-dom";
 import firebase from "firebase/app"; //import everything from this package as firebase
 import "firebase/auth";
 
@@ -9,8 +14,9 @@ import "./App.css";
 //Pages
 import Login from "./containers/Login";
 import CreateAccount from "./containers/CreateAccount";
-import userProfile from "./containers/userProfile";
+import UserProfile from "./containers/UserProfile";
 import Home from "./containers/Home";
+import CreateReview from "./containers/CreateReview";
 
 //Components
 import Header from "./components/Header";
@@ -107,7 +113,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} LogoutFunction={LogoutFunction} />
+      <Header
+        isLoggedIn={loggedIn}
+        LogoutFunction={LogoutFunction}
+        userAuthInfo={userAuthInfo}
+      />
       <Router>
         <Route exact path="/login">
           {/* If someone is logged in, do not take them to login page 
@@ -128,11 +138,14 @@ function App() {
           )}
         </Route>
         <Route exact path="/create-review">
-          {!loggedIn 
-          <Redirect to="/login" />
-          :
-          <CreateReview userAuthInfo={userAuthInfo} />
-          }
+          {!loggedIn ? (
+            <Redirect to="/login" />
+          ) : (
+            <CreateReview userAuthInfo={userAuthInfo} />
+          )}
+        </Route>
+        <Route exact path="/profile/:id">
+          {!loggedIn ? <Redirect to="/login" /> : <UserProfile />}
         </Route>
         <Route exact path="/">
           {/* If someone is not logged in, do not take them to user profile page 
@@ -140,7 +153,7 @@ function App() {
           {!loggedIn ? (
             <Redirect to="/login" />
           ) : (
-            <userProfile userAuthInfo={userAuthInfo} />
+            <Home userAuthInfo={userAuthInfo} />
           )}
         </Route>
       </Router>

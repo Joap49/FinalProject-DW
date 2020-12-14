@@ -1,16 +1,23 @@
 import Axios from "axios";
 import React from "react";
 
-function CreateReview() {
+function CreateReview({ userAuthInfo }) {
   function submitReview(e) {
     e.preventDefault();
     const reviewTitle = e.currentTarget.reviewTitle.value;
     const reviewText = e.currentTarget.reviewText.value;
-    const reviewAuthor = userAuthInfo.uid;
+    const reviewAuthor = e.currentTarget.reviewAuthor.value;
+    const reviewAuthorId = userAuthInfo.uid;
 
     Axios.get(
-      `http://localhost:4000/create?reviewTitle=${reviewTitle}&reviewText=${reviewText}&reviewAuthor=${reviewAuthor}`
-    );
+      `http://localhost:4000/create?reviewTitle=${reviewTitle}&reviewText=${reviewText}&reviewAuthor=${reviewAuthor}&reviewAuthorId=${reviewAuthorId}`
+    )
+      .then(function (response) {
+        console.log({ SUCCESS: response });
+      })
+      .catch(function (error) {
+        console.log("ERROR_CREATING_POST", error);
+      });
     console.log(e.currentTarget);
   }
 

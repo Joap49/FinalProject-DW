@@ -12,7 +12,11 @@ const firebaseConfig = {
   messagingSenderId: "978674596080",
   appId: "1:978674596080:web:e671f444cc0e36c66cea35",
 };
+//Initialize firebase
+firebase.initializeApp(firebaseConfig);
+
 const indexRoute = require("./routes/index.js");
+const createPost = require("./routes/createPost.js");
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -25,6 +29,7 @@ app.use(function (req, res, next) {
 
 //Routes
 app.use("/", indexRoute);
+app.use("/create", createPost);
 
 app.listen(port, () =>
   console.log(`Final Project Backend is running at localhost:${port}`)
