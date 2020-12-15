@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
       res.send("successfully submitted");
     })
     .catch(function (e) {
-      console.log("ERROR", e);
+      console.warn("ERROR", e);
       res.send([{ ERROR_SUBMITTING: e.toString() }]);
     });
 });

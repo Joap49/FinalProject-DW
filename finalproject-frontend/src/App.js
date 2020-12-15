@@ -94,11 +94,10 @@ function App() {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(function (response) {
-        console.log("VALID ACCOUNT CREATED FOR:", email, response);
         setloggedIn(true);
       })
       .catch(function (error) {
-        console.log("ACCOUNT CREATION FAILED", error);
+        console.warn("ACCOUNT CREATION FAILED", error);
       });
   }
 

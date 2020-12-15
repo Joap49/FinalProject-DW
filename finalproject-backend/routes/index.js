@@ -23,7 +23,7 @@ router.get("/reviews/:id", (req, res) => {
       return res.send(reviewsArray);
     })
     .catch(function (error) {
-      console.log("Error:", error);
+      console.warn("Error:", error);
       return res.send(error);
     });
 });
@@ -40,7 +40,7 @@ router.get("/all-reviews", (req, res) => {
       return res.send(reviewsArray);
     })
     .catch(function (error) {
-      console.log("Error:", error);
+      console.warn("Error:", error);
       return res.send(error);
     });
 });

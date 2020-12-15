@@ -32,5 +32,4 @@ app.use("/", indexRoute);
 app.use("/create", createPost);
 
 app.listen(port, () =>
-  console.log(`Final Project Backend is running at localhost:${port}`)
 );

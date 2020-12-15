@@ -20,7 +20,6 @@ router.get("/:id", (req, res) => {
     .then(function (doc) {
       if (doc.exists) {
         const data = doc.data(); //assigning the document data to a variable
-        console.log(data);
         return res.send(data); // send data to use who queries
       } else {
         // if no document exists, send message

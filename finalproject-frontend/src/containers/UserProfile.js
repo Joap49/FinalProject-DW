@@ -14,10 +14,9 @@ function UserProfile() {
         setUserReviewData(response.data);
       })
       .catch(function (error) {
-        console.log("error", error);
+        console.warn("error", error);
       });
   }, []);
-  console.log({ userReviewData });
 
   return (
     <div className="UserProfile">
@@ -29,7 +28,7 @@ function UserProfile() {
             <h2 className="profileText">{review.reviewTitle}</h2>
             <p className="profileText">{review.reviewText}</p>
           </div>
-      ))}
+        ))}
       </div>
     </div>
   );
