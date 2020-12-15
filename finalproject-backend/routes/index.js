@@ -45,8 +45,4 @@ router.get("/all-reviews", (req, res) => {
     });
 });
 
-router.get("/", (req, res) => {
-  res.send(reviewsArray);
-});
-
 module.exports = router;

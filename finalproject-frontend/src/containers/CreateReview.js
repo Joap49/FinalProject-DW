@@ -23,23 +23,31 @@ function CreateReview({ userAuthInfo }) {
   }
 
   return (
-    <div>
-      <h1>Create Review</h1>
-      <form onSubmit={(e) => submitReview(e)}>
-        <label>
-          Subject of Review
-          <input type="text" name="title" placeholder="Title" />
-        </label>
-        <label>
-          Who are you?
-          <input type="text" name="author" placeholder="Author" />
-        </label>
-        <label>
-          What would you like to say?
-          <input type="text" name="text" placeholder="Text" />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+    <div className="submissionForm">
+      <h1>WRITE A REVIEW</h1>
+      <div className="inputContainer">
+        <form onSubmit={(e) => submitReview(e)}>
+        <div className="formWrapper">
+          <label>
+            What product are you reviewing?
+          </label>
+            <input type="text" name="reviewTitle" placeholder="Title" className="inputBar" />
+        </div>
+        <div className="formWrapper">
+          <label>
+            Your name
+          </label>
+            <input type="text" name="reviewAuthor" placeholder="Author" className="inputBar" />
+        </div>
+        <div className="formWrapper">
+          <label>
+            How do you feel about this product?
+          </label>
+            <input type="text" name="reviewText" placeholder="Text" className="inputBar && reviewInput" />
+        </div>
+          <button type="submit" className="submitButton">Submit Review</button>
+        </form>
+      </div>
     </div>
   );
 }

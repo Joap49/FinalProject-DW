@@ -7,7 +7,7 @@ function ReviewCard({ reviewData }) {
       {/* Create this link */}
       <h3>
         <a href={`/user/${reviewData.reviewAuthorId}`}>
-          By: {reviewData.reviewAuthor}
+          by {reviewData.reviewAuthor}
         </a>
       </h3>
       <h3>{reviewData.reviewText}</h3>

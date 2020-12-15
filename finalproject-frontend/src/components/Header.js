@@ -10,7 +10,7 @@ function Header({ LogoutFunction, loggedIn, userAuthInfo }) {
         {!loggedIn && <a href="/create-account">Create Account</a>}
         {!loggedIn && <a href="/login">Login</a>}
         {loggedIn && (
-          <a href="" onClick={() => LogoutFunction}>
+          <a href="" onClick={() => LogoutFunction()}>
             Log Out
           </a>
         )}

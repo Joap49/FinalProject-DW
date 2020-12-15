@@ -11,20 +11,26 @@ function UserProfile() {
     axios
       .get(`https://limitless-eyrie-25092.herokuapp.com/reviews/${id}`) // THis will link to your Heroku deploy
       .then(function (response) {
-        setUserReviewData(response);
+        setUserReviewData(response.data);
       })
       .catch(function (error) {
         console.log("error", error);
       });
   }, []);
+  console.log({ userReviewData });
 
   return (
-    <div className="Title">
-      <h1>User Profile</h1>
-      <h2>{"name"} Reviews:</h2>
-      {userReviewData.map((review, i) => (
-        <reviewCard reviewData={review} key={i} />
+    <div className="UserProfile">
+      <h1>USER PROFILE</h1>
+      <div className="profileReviews">
+        <h1 className="profileText">Your Reviews</h1>
+        {userReviewData.map((review, i) => (
+          <div key={i} className="profileText">
+            <h2 className="profileText">{review.reviewTitle}</h2>
+            <p className="profileText">{review.reviewText}</p>
+          </div>
       ))}
+      </div>
     </div>
   );
 }

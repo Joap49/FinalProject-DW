@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     .doc()
     .set(queryParams)
     .then(function (doc) {
-      res.send("success");
+      res.send("successfully submitted");
     })
     .catch(function (e) {
       console.log("ERROR", e);

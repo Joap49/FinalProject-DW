@@ -21,15 +21,19 @@ function Home() {
   console.log({ reviewAPIData });
 
   return (
-    <div>
-      <h1>ALL REVIEWS:</h1>
-      {reviewAPIData.map((review, i) => (
-        <div key={i}>
-          <h2>{review.reviewTitle}</h2>
-          <h3>By: {review.reviewAuthor}</h3>
-        </div>
-      ))}
+    <div className="Homepage">
+      <h1>REVIEWS</h1>
+      <div className="homeReviews">
+        {reviewAPIData.map((review, i) => (
+          <div key={i} className="homeText">
+            <h2 className="homeText">{review.reviewTitle}</h2>
+            <h3 className="homeText">{review.reviewAuthor}</h3>
+            <p className="homeText">{review.reviewText}</p>
+          </div>
+        ))}
+      </div>
     </div>
+
   );
 }
 

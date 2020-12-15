@@ -101,10 +101,12 @@ function App() {
         console.log("ACCOUNT CREATION FAILED", error);
       });
   }
-  console.log({ loggedIn, loading });
+
+  if (loading) return null;
 
   return (
     <div className="App">
+      <h1 className="websiteName">KURI</h1>
       <Header
         loggedIn={loggedIn}
         LogoutFunction={LogoutFunction}
@@ -118,7 +120,7 @@ function App() {
             <Redirect to="/" />
           )}
         </Route>
-        <Route exact path="create-account">
+        <Route exact path="/create-account">
           {!loggedIn ? (
             <CreateAccount CreateAccountFunction={CreateAccountFunction} />
           ) : (
