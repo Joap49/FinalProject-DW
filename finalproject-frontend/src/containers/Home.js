@@ -18,8 +18,6 @@ function Home() {
       });
   }, []);
 
-  console.log({ reviewAPIData });
-
   return (
     <div className="Homepage">
       <h1>REVIEWS</h1>

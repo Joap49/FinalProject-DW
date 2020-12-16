@@ -31,6 +31,7 @@ app.use(function (req, res, next) {
 app.use("/", indexRoute);
 app.use("/create", createPost);
 
-app.listen(port, () =>
-  console.log(`Final Project Backend is running at localhost:${port}`)
+app.listen(
+  port,
+  () => console.log(`Final Project Backend is running at localhost:${port}`) // App stopped working if this console.log wasn't included
 );
